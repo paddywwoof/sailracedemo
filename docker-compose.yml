@@ -12,7 +12,7 @@ services:
 
   api-server:
     image: mfashby/ysc-apiserver
-    build: ..
+    build: sailracetimerserver
     environment:
       - DB_URL=jdbc:mysql://db:3306/yxsecnyo_ysc
       - DB_USER=root
