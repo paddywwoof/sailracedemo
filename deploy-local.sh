@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+
+
+# Get the latest of submodules
+git submodule update --recursive --remote
+
 # Build the server project
 pushd sailracetimerserver
 ./gradlew build fatJar
@@ -7,12 +12,12 @@ popd
 
 # Build the results widget
 pushd sailraceresults
-REACT_APP_API_SERVER="localhost:8080"
 npm install
-npm run build
+REACT_APP_API_SERVER="http://localhost:8080/api" PUBLIC_URL="http://localhost:8080/results" npm run build
 popd
 
 # Copy build products to the static web server folder
+rm -rf front/static/results
 cp -r sailraceresults/build front/static/results
 
 docker-compose down
