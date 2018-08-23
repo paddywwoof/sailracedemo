@@ -1,0 +1,3 @@
+[submodule "sailracetimerserver"]
+	path = sailracetimerserver
+	url = git@github.com:MFAshby/sailracetimerserver.git
