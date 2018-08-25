@@ -11,5 +11,5 @@ cd sailracedemo
 ./deploy-local.sh
 ```
 
-Once this has completed successfully, you will be able to  view the demo by navigating to [http://localhost:8080/]
-An admin interface for the database is available at [http://localhost:8081/]
+Once this has completed successfully, you will be able to  view the demo by navigating to http://localhost:8080/
+An admin interface for the database is available at http://localhost:8081/
