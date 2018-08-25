@@ -3,7 +3,7 @@
 
 
 # Get the latest of submodules
-git submodule update --recursive --remote
+git submodule update --init --recursive --remote
 
 # Build the server project
 pushd sailracetimerserver
