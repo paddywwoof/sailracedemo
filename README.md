@@ -2,6 +2,7 @@ A simple web application demonstrating the Sailing Race Results API
 
 Prerequisites:
 * [Docker](https://docs.docker.com/install/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
 * [Node JS](https://nodejs.org/)
 
 Local installation and startup:
