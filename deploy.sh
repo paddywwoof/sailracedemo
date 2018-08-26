@@ -23,4 +23,5 @@ docker-compose build
 docker-compose push
 
 # Update services on hyper
+hyper compose pull -f hyper-compose.yml
 hyper compose up -f hyper-compose.yml -d
