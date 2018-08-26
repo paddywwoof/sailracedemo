@@ -5,7 +5,7 @@ git submodule update --init --recursive --remote
 
 # Build the server project
 pushd sailracetimerserver
-./gradlew build fatJar
+./gradlew clean build fatJar
 popd
 
 # Build the results widget
