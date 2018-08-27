@@ -2,14 +2,14 @@ version: '3'
 
 services:
   db:
-    image: mfashby/ysc-mysql
+    image: mfashby/ysc-mysql-demo
     build: mysql
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: example
 
   api-server:
-    image: mfashby/ysc-apiserver
+    image: mfashby/ysc-apiserver-demo
     build: sailracetimerserver
     environment:
      - DB_URL=jdbc:mysql://db:3306/yxsecnyo_ysc
@@ -19,7 +19,7 @@ services:
      - SVR_HOST=0.0.0.0
 
   front:
-    image: mfashby/ysc-front
+    image: mfashby/ysc-front-demo
     build: front
     environment:
      - "EXTERNAL_URL=localhost:8080"
