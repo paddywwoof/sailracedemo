@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>YSC Results API demo</title>
+    <title>YSC Results API demo...</title>
 </head>
 <body>
     <h2>YSC Results API demo</h2>
     <ul>
         <li><a href="/results">Results view</a></li>
         <li><a href="/api">API documentation</a></li>
+        <li>series:<input id="seriesid" size=1/>
+            <button onclick="{
+                window.open('/api/series/updatetimes/' + document.getElementById('seriesid').value, '_self');
+            }">1st update adjusted times</button>
+            <button onclick="{
+                window.open('/api/series/updatepositions/' + document.getElementById('seriesid').value, '_self');
+            }">2nd update positions</button></li>
     </ul>
 </body>
 </html>
