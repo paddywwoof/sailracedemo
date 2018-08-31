@@ -2,20 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>YSC Results API demo...</title>
+    <title>YSC Results API demo</title>
 </head>
 <body>
-    <h2>YSC Results API demo</h2>
-    <ul>
-        <li><a href="/results">Results view</a></li>
-        <li><a href="/api">API documentation</a></li>
-        <li>series:<input id="seriesid" size=1/>
-            <button onclick="{
-                window.open('/api/series/updatetimes/' + document.getElementById('seriesid').value, '_self');
-            }">1st update adjusted times</button>
-            <button onclick="{
-                window.open('/api/series/updatepositions/' + document.getElementById('seriesid').value, '_self');
-            }">2nd update positions</button></li>
-    </ul>
-</body>
+        <h2>YSC Results API demo</h2>
+        <ul>
+            <li><a href="/results">Results view</a></li>
+            <li><a href="/api">API documentation</a></li>
+            <li>series: <input id="seriesid" size="1/">
+                <button onclick="doApi('/api/series/updatetimes/')">1st update adjusted times</button>
+                <button onclick="doApi('/api/series/updatepositions/')">2nd update positions</button>
+                <button onclick="doApi('/api/series/getracesforseries/')">get races for series</button>
+                <button onclick="doApi('/api/series/getpositionsforseries/')">get positions for series</button>
+            </li>
+        </ul>
+        <code id="result"></code>
+    
+        <script>
+            function doApi(url) {
+                var d1 = new Date();
+                var start = d1.getSeconds() * 1000 + d1.getMilliseconds();
+                var seriesid = document.getElementById("seriesid").value;
+                fetch(url + seriesid).then(resp => {
+                    resp.text().then(txt => {
+                        var d2 = new Date();
+                        var elapsed = (d2.getSeconds() * 1000 + d2.getMilliseconds() - start) / 1000.0
+                        document.getElementById("result").innerHTML = "result: " + txt + " (took:" + elapsed + "s)";
+                    });
+                });
+            }
+        </script>
+    
+    </body>
 </html>
